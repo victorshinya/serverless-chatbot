@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "create": "ibmcloud fn action create assistant action.zip --kind nodejs:10",
+        "create": "zip -r action.zip * && ibmcloud fn action create assistant action.zip --kind nodejs:10 && rm -rf action.zip",
         "deploy": "zip -r action.zip * && ibmcloud fn action update assistant action.zip --kind nodejs:10 && rm -rf action.zip",
         "create-api": "ibmcloud fn api create /assistant post assistant --response-type json"
     },
