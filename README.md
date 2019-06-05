@@ -10,8 +10,8 @@ Use [IBM Cloud Functions](https://www.ibm.com/cloud/functions) and [Watson Assis
 ## Components and technologies
 
 * [IBM Cloud Functions](https://cloud.ibm.com/openwhisk): FaaS (Function-as-a-Service) platform that executes functions in response to events. It is based on Apache Openwhisk project.
-* [Node.js](https://developer.ibm.com/?s=node): Platform built on the Google Chrome JavaScript engine to easily build fast and scalable network applications.
-* [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant-formerly-conversation): Platform for creating and managing conversational interfaces based on NLP (Natural Language Processing), or chatbots.
+* [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant): Watson Assistant lets you build conversational interfaces into any application, device, or channel.
+* [MongoDB](https://cloud.ibm.com/catalog/services/databases-for-mongodb): MongoDB is a JSON document store with a rich query and aggregation framework.
 
 ## Deployment
 
@@ -26,17 +26,10 @@ cd serverless-chatbot
 
 ### 2. Open the project in a text editor and replace `{iam_apikey}` and `{workspace_id}` on `assistant.js` by your Watson Assistant's credentials, and replace `{mongodb_uri}` on `mongodb.js` with your MongoDB URI.
 
-### 3. Deploy both functions on IBM Cloud Functions.
-
 ```sh
 ibmcloud fn action create assistant assistant.js
 ibmcloud fn action create mongodb mongodb.js
-```
-
-### 4. Create and deploy a `sequence` with both functions. Replace `YOUR_ASSISTANT_ACTION_NAME` and `YOUR_MONGODB_ACTION_NAME` with your actions name (namespace + action name).
-
-```sh
-ibmcloud fn action create sequence --sequence YOUR_ASSISTANT_ACTION_NAME, YOUR_MONGODB_ACTION_NAME
+ibmcloud fn action create sequence --sequence assistant, mongodb
 ```
 
 ## License
