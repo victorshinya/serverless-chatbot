@@ -27,9 +27,9 @@ cd serverless-chatbot
 ### 2. Open the project in a text editor and replace `{iam_apikey}` and `{workspace_id}` on `assistant.js` by your Watson Assistant's credentials, and replace `{mongodb_uri}` on `mongodb.js` with your MongoDB URI.
 
 ```sh
-ibmcloud fn action create assistant assistant.js
-ibmcloud fn action create mongodb mongodb.js
-ibmcloud fn action create sequence --sequence assistant, mongodb
+ibmcloud fn action create assistant assistant.js --kind nodejs:10
+ibmcloud fn action create mongodb mongodb.js --kind nodejs:10
+ibmcloud fn action create sequence assistant,mongodb --sequence
 ```
 
 ## License
