@@ -32,6 +32,12 @@ ibmcloud fn action create mongodb mongodb.js --kind nodejs:10
 ibmcloud fn action create sequence assistant,mongodb --sequence
 ```
 
+Or you can run the command below
+
+```sh
+source ./deploy.sh
+```
+
 ## License
 
 MIT License
