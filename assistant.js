@@ -6,7 +6,7 @@
  * @param {Object} context The context managed by Watson
  * @returns {Object} Returns the complete object
  */
-const WatsonAssistantV1 = require('watson-developer-cloud/assistant/v1')
+const WatsonAssistantV1 = require('ibm-watson/assistant/v1')
 const assistant = new WatsonAssistantV1({
     version: '2019-02-28',
     iam_apikey: '{iam_apikey}',
@@ -28,3 +28,5 @@ function main(params) {
         })
     })
 }
+
+exports.main = main
