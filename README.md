@@ -1,11 +1,11 @@
+# Create a Serverless Chatbot for your business
+
 [![IBM Cloud Powered](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://cloud.ibm.com)
 [![Platform](https://img.shields.io/badge/platform-nodejs-lightgrey.svg?style=flat)](https://developer.ibm.com/node/)
 
-# Create a Serverless Chatbot for your business
-
 Use [IBM Cloud Functions](https://www.ibm.com/cloud/functions) and [Watson Assistant](https://www.ibm.com/cloud/watson-assistant-2/) service to create a **serverless** chatbot. There is no need to setup a Virtual Server (or Virtual Machine) or a Cloud Foundry to deploy and use your own chatbot. If you don't know how to build a chatbot, [read my blog](https://medium.com/ibmdeveloperbr/watson-assistant-como-criar-o-seu-chatbot-usando-skills-e-assistants-755b4677984b/).
 
-![Architecture Design](doc/source/images/architecture.jpg)
+![Architecture Design](doc/source/images/architecture.jpeg)
 
 ## Components and technologies
 
@@ -27,15 +27,34 @@ cd serverless-chatbot
 ### 2. Open the project in a text editor
 
 Replace on `assistant.js`
-- `{iam_apikey}` with your Watson Assistant's IAM_APIKEY
-- `{workspace_id}` with your Watson Assistant's WORKSPACE_ID
+
+* `{iam_apikey}` with your Watson Assistant's IAM_APIKEY
+
+* `{workspace_id}` with your Watson Assistant's WORKSPACE_ID
 
 Replace on `mongodb.js`:
-- `{mongodb_uri}` with your MongoDB URI
+
+* `{mongodb_uri}` with your MongoDB URI
+
+### 3. Deploy all functions
+
+Run all three commands below:
+
+> Deploy `assistant.js` function using Node.js 10.
 
 ```sh
 ibmcloud fn action create assistant assistant.js --kind nodejs:10
+```
+
+> Deploy `mongodb.js` function using Node.js 10.
+
+```sh
 ibmcloud fn action create mongodb mongodb.js --kind nodejs:10
+```
+
+> Create a `sequence` function and add assistant and mongodb function into it.
+
+```sh
 ibmcloud fn action create sequence assistant,mongodb --sequence
 ```
 
