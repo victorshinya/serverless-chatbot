@@ -1,7 +1,9 @@
 # Create a Serverless Chatbot for your business
 
 [![IBM Cloud Powered](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://cloud.ibm.com)
-[![Platform](https://img.shields.io/badge/platform-nodejs-lightgrey.svg?style=flat)](https://developer.ibm.com/node/)
+[![Platform](https://img.shields.io/badge/platform-nodejs-lightgrey.svg?style=flat)](https://developer.ibm.com/technologies/node-js/)
+[![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/victorshinya/serverless-chatbot/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/victorshinya/serverless-chatbot/pulls)
 
 Use [IBM Cloud Functions](https://www.ibm.com/cloud/functions) and [Watson Assistant](https://www.ibm.com/cloud/watson-assistant-2/) service to create a **serverless** chatbot. There is no need to setup a Virtual Server (or Virtual Machine) or a Cloud Foundry to deploy and use your own chatbot. If you don't know how to build a chatbot, [read my blog](https://medium.com/ibmdeveloperbr/watson-assistant-como-criar-o-seu-chatbot-usando-skills-e-assistants-755b4677984b/).
 
@@ -17,7 +19,7 @@ Use [IBM Cloud Functions](https://www.ibm.com/cloud/functions) and [Watson Assis
 
 To setup and deploy, you need to install [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/reference/ibmcloud/download_cli.html#install_use) and [IBM Cloud Functions CLI](https://cloud.ibm.com/openwhisk/learn/cli) in your local machine and then, follow all steps below.
 
-### 1. Clone this repository.
+### 1. Clone this repository
 
 ```sh
 git clone https://github.com/victorshinya/serverless-chatbot.git
@@ -62,4 +64,4 @@ ibmcloud fn action create sequence assistant,mongodb --sequence
 
 MIT License
 
-Copyright (c) 2018 Victor Kazuyuki Shinya
+Copyright (c) 2020 Victor Shinya
