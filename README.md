@@ -7,7 +7,7 @@
 
 Use [IBM Cloud Functions](https://www.ibm.com/cloud/functions) and [Watson Assistant](https://www.ibm.com/cloud/watson-assistant-2/) service to create a **serverless** chatbot. There is no need to setup a Virtual Server (or Virtual Machine) or a Cloud Foundry to deploy and use your own chatbot. If you don't know how to build a chatbot, [read my blog](https://medium.com/ibmdeveloperbr/watson-assistant-como-criar-o-seu-chatbot-usando-skills-e-assistants-755b4677984b/).
 
-![Architecture Design](doc/source/images/architecture.jpeg)
+![Architecture Design](doc/source/images/architecture.jpg)
 
 ## Components and technologies
 
@@ -28,39 +28,28 @@ cd serverless-chatbot
 
 ### 2. Open the project in a text editor
 
-Replace on `assistant.js`
+Replace on [`assistant.js`](src/assistant.js):
 
-* `{iam_apikey}` with your Watson Assistant's IAM_APIKEY
+* [ Line 14 ] `{iam_apikey}` by your Watson Assistant's IAM_APIKEY
+* [ Line 22, 29 ] `{assistant_id}` by your Watson Assistant's ASSISTANT_ID
 
-* `{workspace_id}` with your Watson Assistant's WORKSPACE_ID
+Replace on [`mongodb.js`](src/mongodb.js):
 
-Replace on `mongodb.js`:
-
-* `{mongodb_uri}` with your MongoDB URI
+* [ Line 17 ] `{mongodb_uri}` by your MongoDB URI
+* [ Line 23 ] `{mongodb_db}` by your MongoDB Database name
+* [ Line 24 ] `{mongodb_collection}` by your MongoDB Collection name
 
 ### 3. Deploy all functions
 
-Run all three commands below:
+Run the following command to deploy both `assistant.js` and `mongodb.js` functions and create a sequence with all actions on IBM Cloud Functions. Required an account on [IBM Cloud](https://cloud.ibm.com).
 
-> Deploy `assistant.js` function using Node.js 10.
-
-```sh
-ibmcloud fn action create assistant assistant.js --kind nodejs:10
-```
-
-> Deploy `mongodb.js` function using Node.js 10.
+> As you are using IBM Cloud Functions, you don't need to install any package or setup a `package.json`. The platform already ha
 
 ```sh
-ibmcloud fn action create mongodb mongodb.js --kind nodejs:10
+ibmcloud fn deploy --manifest manifest.yml
 ```
 
-> Create a `sequence` function and add assistant and mongodb function into it.
-
-```sh
-ibmcloud fn action create sequence assistant,mongodb --sequence
-```
-
-## License
+## LICENSE
 
 MIT License
 

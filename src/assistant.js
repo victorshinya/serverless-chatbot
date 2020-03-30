@@ -1,10 +1,12 @@
 /**
- * Send user's input and conversation context to Watson to process and returns
- * an output based on user's knowledge base.
+ * Send user's input, assistant context and session id to Watson to process
+ * and returns an output based on assistant's knowledge base.
  *
  * @param {Object} input The text message to send to Watson
  * @param {Object} context The context managed by Watson
- * @returns {Object} Returns the complete object
+ * @param {String} session_id The session id managed by Watson
+ * 
+ * @return {Object} Returns the complete object
  */
 const WatsonAssistantV2 = require('ibm-watson/assistant/v2')
 const assistant = new WatsonAssistantV2({

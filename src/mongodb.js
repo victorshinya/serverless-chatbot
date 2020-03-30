@@ -7,6 +7,7 @@
  * @param {Object} intents The recognized intent based on user's knowledge base
  * @param {Object} entities The list of recognized entities based on user's knowledge base
  * @param {Object} context The context managed by Watson
+ * @param {String} session_id The session id managed by Watson
  * @returns {Object} Returns the object
  */
 const MongoClient = require('mongodb').MongoClient
@@ -19,8 +20,8 @@ function main(params) {
             } else {
                 console.log("Connected successfully to server")
 
-                const db = client.db('watson')
-                const collection = db.collection('chatbot')
+                const db = client.db('{mongodb_db}')
+                const collection = db.collection('{mongodb_collection}')
                 collection.insertOne(params, (err, doc) => {
                     client.close()
                     if (err) {
