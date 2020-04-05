@@ -17,7 +17,7 @@ Use [IBM Cloud Functions](https://www.ibm.com/cloud/functions) and [Watson Assis
 
 ## Deployment
 
-To setup and deploy, you need to install [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/reference/ibmcloud/download_cli.html#install_use) and [IBM Cloud Functions CLI](https://cloud.ibm.com/openwhisk/learn/cli) in your local machine and then, follow all steps below.
+To deploy, you need to install [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/reference/ibmcloud/download_cli.html#install_use) and [IBM Cloud Functions CLI](https://cloud.ibm.com/openwhisk/learn/cli) in your local machine. After this step, you need to login in your IBM Cloud account on IBM Cloud CLI (if you haven't already done, run `ibmcloud login`), follow all steps below.
 
 ### 1. Clone this repository
 
@@ -43,7 +43,7 @@ Replace on [`mongodb.js`](src/mongodb.js):
 
 Run the following command to deploy both `assistant.js` and `mongodb.js` functions and create a sequence with all actions on IBM Cloud Functions. Required an account on [IBM Cloud](https://cloud.ibm.com).
 
-> As you are using IBM Cloud Functions, you don't need to install any package or setup a `package.json`. The platform already ha
+> As you are using IBM Cloud Functions, you don't need to install any package or setup a `package.json`. The platform already has the package installed.
 
 ```sh
 ibmcloud fn deploy --manifest manifest.yml
